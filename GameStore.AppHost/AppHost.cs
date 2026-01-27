@@ -12,6 +12,8 @@ var postgres = builder.AddPostgres("postgres")
 var database = postgres.AddDatabase("GameStore");
 
 builder.AddProject<GameStore_Api>("gamestore-api")
-        .WithReference(database);
+        .WithHttpHealthCheck("/health")
+        .WithReference(database)
+        .WaitFor(database);
 
 builder.Build().Run();

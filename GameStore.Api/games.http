@@ -28,3 +28,9 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:5239/games/3
+
+###
+GET http://localhost:5239/alive
+
+###
+GET http://localhost:5239/health
