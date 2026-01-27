@@ -1,3 +1,5 @@
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 var postgres = builder.AddPostgres("postgres")
@@ -7,6 +9,9 @@ var postgres = builder.AddPostgres("postgres")
                         pgAdmin.WithHostPort(5050);
                     });
 
-postgres.AddDatabase("GameStore");
+var database = postgres.AddDatabase("GameStore");
+
+builder.AddProject<GameStore_Api>("gamestore-api")
+        .WithReference(database);
 
 builder.Build().Run();
