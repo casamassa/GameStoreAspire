@@ -7,6 +7,8 @@ builder.AddServiceDefaults();
 
 builder.AddNpgsqlDbContext<GameStoreContext>("GameStore");
 
+builder.AddRedisDistributedCache("redis");
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();

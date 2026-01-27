@@ -11,9 +11,13 @@ var postgres = builder.AddPostgres("postgres")
 
 var database = postgres.AddDatabase("GameStore");
 
+var redis = builder.AddRedis("redis");
+
 builder.AddProject<GameStore_Api>("gamestore-api")
         .WithHttpHealthCheck("/health")
         .WithReference(database)
-        .WaitFor(database);
+        .WaitFor(database)
+        .WithReference(redis)
+        .WaitFor(redis);
 
 builder.Build().Run();
