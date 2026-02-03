@@ -95,10 +95,13 @@ Essa abordagem permitiu observar, de forma prática, os **ganhos reais de perfor
 
 ```bash
 dotnet restore
-dotnet run
+dotnet run --project .\GameStore.AppHost\
 ```
 
-O Aspire Dashboard será iniciado automaticamente, permitindo:
+O Aspire Dashboard será iniciado observe a URL gerada já com o token de acesso algo parecido com:
+Login to the dashboard at https://localhost:17142/login?t=b04c905fd70918ed0fe04f5f62ba8d3b
+
+A partir do Dashboard, você pode:
 
 - Visualizar serviços
 - Acompanhar health checks
